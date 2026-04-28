@@ -15,15 +15,14 @@
 
     <style>
         :root {
-            /* Override Reveal.js variables with Inflectra Brand */
             --r-main-font: 'Urbanist', sans-serif;
             --r-heading-font: 'Urbanist', sans-serif;
-            --r-main-color: #94a3b8; /* text-muted */
-            --r-heading-color: #f8fafc; /* text-light */
-            --r-link-color: #f58220; /* Inflectra Orange */
+            --r-main-color: #94a3b8; 
+            --r-heading-color: #f8fafc; 
+            --r-link-color: #f58220; 
             --r-link-color-hover: #fb923c;
             --r-selection-background-color: #f58220;
-            --r-background-color: #0f172a; /* bg-dark */
+            --r-background-color: #0f172a; 
         }
         
         .reveal h1, .reveal h2, .reveal h3 { text-transform: none; letter-spacing: -0.5px; }
@@ -82,7 +81,7 @@
             z-index: 20;
         }
         
-        .persistent-header img { height: 45px; }
+        .persistent-header img { height: 45px; width: auto; }
 
         .persistent-footer {
             position: absolute;
@@ -96,13 +95,19 @@
             font-family: monospace;
             z-index: 20;
         }
+
+        /* Image Helper Classes */
+        .slide-logo { height: 60px; width: auto; margin: 0 0 15px 0 !important; background: none !important; border: none !important; box-shadow: none !important; }
+        .center-logo { height: 80px; width: auto; margin-bottom: 30px !important; background: none !important; border: none !important; box-shadow: none !important; }
+        .hero-logo { height: 140px; width: auto; margin-bottom: 40px !important; background: none !important; border: none !important; box-shadow: none !important; }
     </style>
 </head>
 <body>
 
     <div class="persistent-header">
-        <img src="assets/inflectra-logo-light.png" alt="Inflectra®">
+        <img src="https://www.inflectra.com/Images/Media-Kit/Inflectra-AI-Logo-Horizontal.svg" alt="Inflectra.ai™">
     </div>
+    
     <div class="persistent-footer">
         <span>© 2026 Inflectra Corporation</span>
         <span>Delivering Quality Software at AI Speed</span>
@@ -112,12 +117,16 @@
         <div class="slides">
 
             <section class="center" style="text-align: center;">
-                <div class="product-badge">Inflectra.ai™</div>
+                <img src="https://www.inflectra.com/Images/Media-Kit/inflectra-logo-transparent.png" alt="Inflectra®" class="hero-logo">
+                <h3 style="font-size: 1.8em; font-weight: 500; color: #cbd5e1; margin-bottom: 10px;">Delivering Quality Software</h3>
+                <p style="font-size: 1.4em; color: var(--r-link-color);">Faster and With Lower Risk.</p>
+            </section>
+
+            <section class="center" style="text-align: center;">
                 <h1>Pragmatic <span class="text-orange">Intelligence</span></h1>
                 <p style="font-size: 1.2em; color: #cbd5e1; margin-top: 20px;">
                     Inflectra's Measured Pivot to AI-Assistive Software Delivery
                 </p>
-                <img src="assets/ai-network-graphic.png" style="max-height: 250px; border: none; background: transparent; box-shadow: none; margin-top: 40px;" alt="">
             </section>
 
             <section>
@@ -138,15 +147,14 @@
                 <h2>Spira®: Human-Centric ALM</h2>
                 <div class="grid-2">
                     <div>
-                        <div class="product-badge">SpiraPlan® / SpiraTeam®</div>
                         <ul style="margin-top: 20px;">
-                            <li class="fragment"><strong>Requirement Generation:</strong> Safely decompose Epics into Features and User Stories, keeping the human as the final editor.</li>
+                            <li class="fragment"><strong>Requirement Gen:</strong> Safely decompose Epics into Features and User Stories, keeping the human as the final editor.</li>
                             <li class="fragment"><strong>Risk Analysis:</strong> Analyze massive releases for progress and risk—solving the data deluge without hallucination.</li>
                             <li class="fragment"><strong>Test Case Drafting:</strong> Generate standard and BDD Gherkin test cases directly from requirements.</li>
                         </ul>
                     </div>
                     <div class="tile fragment">
-                        <img src="assets/spira-icon.png" alt="Spira Icon" style="height: 60px; margin: 0 0 15px 0; background: none; border: none; box-shadow: none;">
+                        <img src="https://www.inflectra.com/Images/Media-Kit/spiraPlan-logo-no-bg.png" alt="SpiraPlan®" class="slide-logo">
                         <h3>The Maven Loop</h3>
                         <p>Built directly from Inflectra User Group feedback. We implemented AI to solve real pain points, not theoretical ones.</p>
                     </div>
@@ -157,7 +165,6 @@
                 <h2>Rapise®: Breathtaking UI Automation</h2>
                 <div class="grid-2">
                     <div>
-                        <div class="product-badge">Rapise®</div>
                         <ul style="margin-top: 20px;">
                             <li class="fragment"><strong>AI Object Recognition:</strong> Native computer vision identifies UI elements even when underlying DOM IDs change.</li>
                             <li class="fragment"><strong>Self-Healing Locators:</strong> Automated repair of failing scripts during execution, drastically reducing maintenance.</li>
@@ -165,7 +172,7 @@
                         </ul>
                     </div>
                     <div class="tile fragment">
-                        <img src="assets/rapise-icon.png" alt="Rapise Icon" style="height: 60px; margin: 0 0 15px 0; background: none; border: none; box-shadow: none;">
+                        <img src="https://www.inflectra.com/Images/Media-Kit/rapise-logo-no-bg.png" alt="Rapise®" class="slide-logo">
                         <h3>Intent Translation</h3>
                         <p>Translates natural language intent into standard script actions, enabling Shift-Left testing before the UI is finalized.</p>
                     </div>
@@ -185,13 +192,13 @@
                     </div>
                 </div>
                 <div class="fragment" style="text-align: center; margin-top: 40px;">
-                    <div class="product-badge">SureWire™</div>
+                    <img src="https://www.inflectra.com/Images/Media-Kit/SureWire-Logo-Color-Large.png" alt="SureWire™" class="slide-logo" style="height: 50px;">
                     <p style="font-size: 0.9em; max-width: 80%; margin: 0 auto;">Ensuring your AI Agents are safe, reliable, and auditable.</p>
                 </div>
             </section>
 
             <section class="center" style="text-align: center;">
-                <img src="assets/inflectra-icon.png" alt="Inflectra" style="height: 80px; margin-bottom: 30px; background: none; border: none; box-shadow: none;">
+                <img src="https://www.inflectra.com/Images/Media-Kit/inflectra-logo-transparent.png" alt="Inflectra®" class="center-logo">
                 <h2>Questions?</h2>
                 <p style="font-size: 1.2em; color: var(--r-link-color);">Building Quality Together.</p>
                 <p style="font-size: 0.8em; font-family: monospace; margin-top: 30px;">www.inflectra.com</p>
@@ -202,15 +209,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script>
-        // Initialize Reveal.js
         Reveal.initialize({
             hash: true,
             controls: true,
             progress: true,
-            center: false, // Turned off for custom top-aligned layouts
-            transition: 'fade', // Options: none/fade/slide/convex/concave/zoom
-            
-            // Optional: You can add Reveal.js plugins here if needed
+            center: false,
+            transition: 'fade',
             plugins: []
         });
     </script>
