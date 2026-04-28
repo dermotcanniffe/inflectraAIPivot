@@ -20,41 +20,26 @@
             --r-main-color: #94a3b8; 
             --r-heading-color: #f8fafc; 
             --r-link-color: #f58220; 
-            --r-link-color-hover: #fb923c;
             --r-selection-background-color: #f58220;
             --r-background-color: #0f172a; 
         }
         
         .reveal h1, .reveal h2, .reveal h3 { text-transform: none; letter-spacing: -0.5px; }
-        .reveal h1 { font-size: 3em; font-weight: 700; line-height: 1.1; }
+        .reveal h1 { font-size: 2.8em; font-weight: 700; line-height: 1.1; margin-bottom: 20px;}
         .reveal h2 { 
-            font-size: 2em; 
+            font-size: 1.8em; 
             border-left: 6px solid var(--r-link-color); 
-            padding-left: 20px; 
+            padding-left: 15px; 
             text-align: left; 
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .text-orange { color: var(--r-link-color) !important; }
         
-        .product-badge {
-            display: inline-block;
-            background: rgba(245, 130, 32, 0.15);
-            color: var(--r-link-color);
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.4em;
-            margin-bottom: 20px;
-            border: 1px solid rgba(245, 130, 32, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         .grid-2 { 
             display: grid; 
             grid-template-columns: 1.2fr 0.8fr; 
-            gap: 40px; 
+            gap: 30px; 
             text-align: left; 
             align-items: center;
         }
@@ -64,42 +49,42 @@
             border: 1px solid #334155;
             border-top: 4px solid var(--r-link-color);
             border-radius: 8px;
-            padding: 30px;
+            padding: 20px; 
         }
 
-        .tile h3 { font-size: 1.2em; margin-bottom: 15px; }
-        .tile p { font-size: 0.8em; line-height: 1.5; margin: 0; }
+        .tile h3 { font-size: 1.1em; margin-bottom: 10px; }
+        .tile p { font-size: 0.75em; line-height: 1.4; margin: 0; }
         
         .reveal ul { display: block; margin-left: 1em; }
-        .reveal li { margin-bottom: 20px; font-size: 0.8em; line-height: 1.4; }
+        .reveal li { margin-bottom: 15px; font-size: 0.75em; line-height: 1.3; }
         
         /* Persistent Overlay UI */
         .persistent-header {
             position: absolute;
-            top: 30px;
-            left: 40px;
+            top: 15px;
+            left: 30px;
             z-index: 20;
         }
         
-        .persistent-header img { height: 45px; width: auto; }
+        .persistent-header img { height: 35px; width: auto; }
 
         .persistent-footer {
             position: absolute;
-            bottom: 20px;
-            left: 40px;
-            right: 40px;
+            bottom: 10px;
+            left: 30px;
+            right: 30px;
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
+            font-size: 12px;
             color: #475569;
             font-family: monospace;
             z-index: 20;
         }
 
         /* Image Helper Classes */
-        .slide-logo { height: 60px; width: auto; margin: 0 0 15px 0 !important; background: none !important; border: none !important; box-shadow: none !important; }
-        .center-logo { height: 80px; width: auto; margin-bottom: 30px !important; background: none !important; border: none !important; box-shadow: none !important; }
-        .hero-logo { height: 140px; width: auto; margin-bottom: 40px !important; background: none !important; border: none !important; box-shadow: none !important; }
+        .slide-logo { height: 50px; width: auto; margin: 0 0 10px 0 !important; background: none !important; border: none !important; box-shadow: none !important; }
+        .center-logo { height: 80px; width: auto; margin-bottom: 20px !important; background: none !important; border: none !important; box-shadow: none !important; }
+        .hero-logo { height: 120px; width: auto; margin-bottom: 30px !important; background: none !important; border: none !important; box-shadow: none !important; }
     </style>
 </head>
 <body>
@@ -118,13 +103,13 @@
 
             <section class="center" style="text-align: center;">
                 <img src="https://www.inflectra.com/Images/Media-Kit/inflectra-logo-transparent.png" alt="Inflectra®" class="hero-logo">
-                <h3 style="font-size: 1.8em; font-weight: 500; color: #cbd5e1; margin-bottom: 10px;">Delivering Quality Software</h3>
-                <p style="font-size: 1.4em; color: var(--r-link-color);">Faster and With Lower Risk.</p>
+                <h3 style="font-size: 1.6em; font-weight: 500; color: #cbd5e1; margin-bottom: 10px;">Delivering Quality Software</h3>
+                <p style="font-size: 1.2em; color: var(--r-link-color);">Faster and With Lower Risk.</p>
             </section>
 
             <section class="center" style="text-align: center;">
                 <h1>Pragmatic <span class="text-orange">Intelligence</span></h1>
-                <p style="font-size: 1.2em; color: #cbd5e1; margin-top: 20px;">
+                <p style="font-size: 1.1em; color: #cbd5e1;">
                     Inflectra's Measured Pivot to AI-Assistive Software Delivery
                 </p>
             </section>
@@ -133,12 +118,12 @@
                 <h2>Signal Over Noise</h2>
                 <div class="grid-2" style="grid-template-columns: 1fr 1fr;">
                     <div class="fragment">
-                        <h3 class="text-orange" style="font-size: 1.4em;">The Hype Cycle</h3>
-                        <p style="font-size: 0.9em;">Widespread "AI-washing" of legacy tools. Many vendors prioritized market buzz over functional reliability, resulting in "Beta" features that customers had to debug.</p>
+                        <h3 class="text-orange" style="font-size: 1.2em;">The Hype Cycle</h3>
+                        <p style="font-size: 0.8em; line-height: 1.4;">Widespread "AI-washing" of legacy tools. Many vendors prioritized market buzz over functional reliability, resulting in "Beta" features that customers had to debug.</p>
                     </div>
                     <div class="fragment">
-                        <h3 class="text-orange" style="font-size: 1.4em;">The Inflectra Way</h3>
-                        <p style="font-size: 0.9em;">Measured innovation. We focused R&D on where LLMs improve the ALM workflow deterministically. We chose <strong>Assistive</strong> over autonomous, ensuring stability over speed.</p>
+                        <h3 class="text-orange" style="font-size: 1.2em;">The Inflectra Way</h3>
+                        <p style="font-size: 0.8em; line-height: 1.4;">Measured innovation. We focused R&D on where LLMs improve the ALM workflow deterministically. We chose <strong>Assistive</strong> over autonomous, ensuring stability over speed.</p>
                     </div>
                 </div>
             </section>
@@ -147,7 +132,7 @@
                 <h2>Spira®: Human-Centric ALM</h2>
                 <div class="grid-2">
                     <div>
-                        <ul style="margin-top: 20px;">
+                        <ul style="margin-top: 10px;">
                             <li class="fragment"><strong>Requirement Gen:</strong> Safely decompose Epics into Features and User Stories, keeping the human as the final editor.</li>
                             <li class="fragment"><strong>Risk Analysis:</strong> Analyze massive releases for progress and risk—solving the data deluge without hallucination.</li>
                             <li class="fragment"><strong>Test Case Drafting:</strong> Generate standard and BDD Gherkin test cases directly from requirements.</li>
@@ -165,7 +150,7 @@
                 <h2>Rapise®: Breathtaking UI Automation</h2>
                 <div class="grid-2">
                     <div>
-                        <ul style="margin-top: 20px;">
+                        <ul style="margin-top: 10px;">
                             <li class="fragment"><strong>AI Object Recognition:</strong> Native computer vision identifies UI elements even when underlying DOM IDs change.</li>
                             <li class="fragment"><strong>Self-Healing Locators:</strong> Automated repair of failing scripts during execution, drastically reducing maintenance.</li>
                             <li class="fragment"><strong>AiTester Object:</strong> Execute complex visual verifications by sending text/image queries to LLMs on the fly.</li>
@@ -191,17 +176,17 @@
                         <p>Sensitive ALM data is <strong>never</strong> used to train public models. Secure, private instances ensure enterprise-grade compliance.</p>
                     </div>
                 </div>
-                <div class="fragment" style="text-align: center; margin-top: 40px;">
-                    <img src="https://www.inflectra.com/Images/Media-Kit/SureWire-Logo-Color-Large.png" alt="SureWire™" class="slide-logo" style="height: 50px;">
-                    <p style="font-size: 0.9em; max-width: 80%; margin: 0 auto;">Ensuring your AI Agents are safe, reliable, and auditable.</p>
+                <div class="fragment" style="text-align: center; margin-top: 30px;">
+                    <img src="https://www.inflectra.com/Images/Media-Kit/SureWire-Logo-Color-Large.png" alt="SureWire™" class="slide-logo" style="height: 40px;">
+                    <p style="font-size: 0.8em; max-width: 80%; margin: 0 auto;">Ensuring your AI Agents are safe, reliable, and auditable.</p>
                 </div>
             </section>
 
             <section class="center" style="text-align: center;">
                 <img src="https://www.inflectra.com/Images/Media-Kit/inflectra-logo-transparent.png" alt="Inflectra®" class="center-logo">
                 <h2>Questions?</h2>
-                <p style="font-size: 1.2em; color: var(--r-link-color);">Building Quality Together.</p>
-                <p style="font-size: 0.8em; font-family: monospace; margin-top: 30px;">www.inflectra.com</p>
+                <p style="font-size: 1.1em; color: var(--r-link-color);">Building Quality Together.</p>
+                <p style="font-size: 0.8em; font-family: monospace; margin-top: 20px;">www.inflectra.com</p>
             </section>
 
         </div>
@@ -210,10 +195,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
     <script>
         Reveal.initialize({
+            // Zoom-optimized layout config
+            width: 1280,
+            height: 720,
+            margin: 0.12, 
+            minScale: 0.2, 
+            maxScale: 2.0, 
+            
             hash: true,
             controls: true,
             progress: true,
-            center: false,
+            center: true, 
             transition: 'fade',
             plugins: []
         });
