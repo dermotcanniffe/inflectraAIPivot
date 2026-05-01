@@ -81,6 +81,16 @@
             z-index: 20;
         }
 
+        /* PLTR slide — blur chart when overlay fragment is visible */
+        .pltr-blurred {
+            filter: blur(3px);
+            opacity: 0.45;
+            transition: filter 0.4s ease, opacity 0.4s ease;
+        }
+        .pltr-content {
+            transition: filter 0.4s ease, opacity 0.4s ease;
+        }
+
         /* Image Helper Classes */
         .slide-logo { height: 50px; width: auto; margin: 0 0 10px 0 !important; background: none !important; border: none !important; box-shadow: none !important; }
         .center-logo { height: 80px; width: auto; margin: 0 !important; background: none !important; border: none !important; box-shadow: none !important; }
@@ -198,92 +208,64 @@
 
             <section>
                 <h2>The Market Speaks: <span class="text-orange">PLTR</span></h2>
-                <div style="display: flex; align-items: center; gap: 30px;">
-                    <div style="flex: 1;">
-                        <!-- PLTR price chart: Sep 2020 IPO → Jan 2021 peak → Nov 2022 floor → 2024 explosion -->
-                        <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; font-family: 'Urbanist', sans-serif;">
-                            <!-- Grid lines -->
-                            <line x1="60" y1="20" x2="60" y2="240" stroke="#334155" stroke-width="1"/>
-                            <line x1="60" y1="240" x2="580" y2="240" stroke="#334155" stroke-width="1"/>
-                            <line x1="60" y1="180" x2="580" y2="180" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
-                            <line x1="60" y1="120" x2="580" y2="120" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
-                            <line x1="60" y1="60"  x2="580" y2="60"  stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
-
-                            <!-- Y-axis labels ($) -->
-                            <text x="50" y="244" fill="#64748b" font-size="11" text-anchor="end">$0</text>
-                            <text x="50" y="184" fill="#64748b" font-size="11" text-anchor="end">$40</text>
-                            <text x="50" y="124" fill="#64748b" font-size="11" text-anchor="end">$80</text>
-                            <text x="50" y="64"  fill="#64748b" font-size="11" text-anchor="end">$120</text>
-
-                            <!-- X-axis labels -->
-                            <text x="60"  y="258" fill="#64748b" font-size="11" text-anchor="middle">Sep'20</text>
-                            <text x="165" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'21</text>
-                            <text x="270" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'22</text>
-                            <text x="340" y="258" fill="#64748b" font-size="11" text-anchor="middle">Nov'22</text>
-                            <text x="410" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'24</text>
-                            <text x="510" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'25</text>
-
-                            <!-- Price line
-                                 Scale: $0=240, $120=20 → 1px = $0.55 → $1 = 1.83px
-                                 X: Sep2020=60, Jan2021=165, Jan2022=270, Nov2022=340, Jan2024=410, Jan2025=510, Apr2025=580
-                                 Prices: $10, $45, $14, $6, $20, $80, $125
-                            -->
-                            <polyline
-                                points="60,222 165,157 270,214 340,229 410,203 510,93 580,10"
-                                fill="none"
-                                stroke="#f58220"
-                                stroke-width="2.5"
-                                stroke-linejoin="round"
-                            />
-
-                            <!-- Area fill under line -->
-                            <polygon
-                                points="60,222 165,157 270,214 340,229 410,203 510,93 580,10 580,240 60,240"
-                                fill="url(#pltrGrad)"
-                                opacity="0.3"
-                            />
-                            <defs>
-                                <linearGradient id="pltrGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stop-color="#f58220" stop-opacity="0.6"/>
-                                    <stop offset="100%" stop-color="#f58220" stop-opacity="0"/>
-                                </linearGradient>
-                            </defs>
-
-                            <!-- ChatGPT launch annotation -->
-                            <line x1="340" y1="20" x2="340" y2="240" stroke="#fdb913" stroke-width="1.5" stroke-dasharray="5,3"/>
-                            <rect x="344" y="22" width="110" height="22" rx="4" fill="#1e293b" stroke="#fdb913" stroke-width="1"/>
-                            <text x="399" y="37" fill="#fdb913" font-size="11" text-anchor="middle">ChatGPT launch</text>
-
-                            <!-- IPO annotation -->
-                            <circle cx="60" cy="222" r="4" fill="#f58220"/>
-                            <text x="64" y="215" fill="#94a3b8" font-size="10">IPO $10</text>
-
-                            <!-- Peak annotation -->
-                            <circle cx="165" cy="157" r="4" fill="#f58220"/>
-                            <text x="169" y="150" fill="#94a3b8" font-size="10">$45</text>
-
-                            <!-- Floor annotation -->
-                            <circle cx="340" cy="229" r="4" fill="#fdb913"/>
-                            <text x="316" y="222" fill="#fdb913" font-size="10">$6</text>
-
-                            <!-- 2025 peak annotation -->
-                            <circle cx="580" cy="10" r="4" fill="#f58220"/>
-                            <text x="540" y="10" fill="#94a3b8" font-size="10">~$125</text>
-                        </svg>
+                <div style="position: relative;">
+                    <!-- Chart + stats — blurs when fragment is visible -->
+                    <div class="pltr-content" style="display: flex; align-items: center; gap: 30px; transition: filter 0.4s ease;">
+                        <div style="flex: 1;">
+                            <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; font-family: 'Urbanist', sans-serif;">
+                                <line x1="60" y1="20" x2="60" y2="240" stroke="#334155" stroke-width="1"/>
+                                <line x1="60" y1="240" x2="580" y2="240" stroke="#334155" stroke-width="1"/>
+                                <line x1="60" y1="180" x2="580" y2="180" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+                                <line x1="60" y1="120" x2="580" y2="120" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+                                <line x1="60" y1="60"  x2="580" y2="60"  stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+                                <text x="50" y="244" fill="#64748b" font-size="11" text-anchor="end">$0</text>
+                                <text x="50" y="184" fill="#64748b" font-size="11" text-anchor="end">$40</text>
+                                <text x="50" y="124" fill="#64748b" font-size="11" text-anchor="end">$80</text>
+                                <text x="50" y="64"  fill="#64748b" font-size="11" text-anchor="end">$120</text>
+                                <text x="60"  y="258" fill="#64748b" font-size="11" text-anchor="middle">Sep'20</text>
+                                <text x="165" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'21</text>
+                                <text x="270" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'22</text>
+                                <text x="340" y="258" fill="#64748b" font-size="11" text-anchor="middle">Nov'22</text>
+                                <text x="410" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'24</text>
+                                <text x="510" y="258" fill="#64748b" font-size="11" text-anchor="middle">Jan'25</text>
+                                <polygon points="60,222 165,157 270,214 340,229 410,203 510,93 580,10 580,240 60,240" fill="url(#pltrGrad)" opacity="0.3"/>
+                                <polyline points="60,222 165,157 270,214 340,229 410,203 510,93 580,10" fill="none" stroke="#f58220" stroke-width="2.5" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="pltrGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f58220" stop-opacity="0.6"/>
+                                        <stop offset="100%" stop-color="#f58220" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <line x1="340" y1="20" x2="340" y2="240" stroke="#fdb913" stroke-width="1.5" stroke-dasharray="5,3"/>
+                                <rect x="344" y="22" width="110" height="22" rx="4" fill="#1e293b" stroke="#fdb913" stroke-width="1"/>
+                                <text x="399" y="37" fill="#fdb913" font-size="11" text-anchor="middle">ChatGPT launch</text>
+                                <circle cx="60" cy="222" r="4" fill="#f58220"/>
+                                <text x="64" y="215" fill="#94a3b8" font-size="10">IPO $10</text>
+                                <circle cx="165" cy="157" r="4" fill="#f58220"/>
+                                <text x="169" y="150" fill="#94a3b8" font-size="10">$45</text>
+                                <circle cx="340" cy="229" r="4" fill="#fdb913"/>
+                                <text x="316" y="222" fill="#fdb913" font-size="10">$6</text>
+                                <circle cx="580" cy="10" r="4" fill="#f58220"/>
+                                <text x="540" y="10" fill="#94a3b8" font-size="10">~$125</text>
+                            </svg>
+                        </div>
+                        <div style="flex: 0 0 200px; text-align: left;">
+                            <p style="font-size: 0.75em; color: #94a3b8; line-height: 1.6;">
+                                <span class="text-orange" style="font-size: 1.3em; font-weight: 700; display: block; margin-bottom: 8px;">~2,000%</span>
+                                gain from ChatGPT launch to peak
+                            </p>
+                            <p style="font-size: 0.7em; color: #64748b; margin-top: 20px; line-height: 1.5;">
+                                Palantir's rise reflects market sentiment, not a product pivot. The underlying platform barely changed — the narrative did.
+                            </p>
+                        </div>
                     </div>
-                    <div style="flex: 0 0 200px; text-align: left;">
-                        <p style="font-size: 0.75em; color: #94a3b8; line-height: 1.6;">
-                            <span class="text-orange" style="font-size: 1.3em; font-weight: 700; display: block; margin-bottom: 8px;">~2,000%</span>
-                            gain from ChatGPT launch to peak
-                        </p>
-                        <p style="font-size: 0.7em; color: #64748b; margin-top: 20px; line-height: 1.5;">
-                            Palantir's rise reflects market sentiment, not a product pivot. The underlying platform barely changed — the narrative did.
+                    <!-- Overlay question — appears on fragment, centred over chart -->
+                    <div class="fragment" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                        <p style="font-size: 1.6em; font-weight: 700; color: #fdb913; text-align: center; text-shadow: 0 2px 20px rgba(0,0,0,0.8); background: rgba(15,23,42,0.55); padding: 20px 40px; border-radius: 12px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">
+                            But how much of that is hype?
                         </p>
                     </div>
                 </div>
-                <p class="fragment" style="text-align: center; margin-top: 24px; font-size: 1.1em; color: #fdb913; font-weight: 600;">
-                    But how much of that is hype?
-                </p>
                 <aside class="notes">
                     Palantir IPO'd in September 2020 at $10. It ran to $45 in the post-COVID tech boom, then crashed back to $6 by the time ChatGPT launched on November 30, 2022.
 
@@ -400,6 +382,22 @@
             center: true, 
             transition: 'fade',
             plugins: [RevealNotes]
+        });
+
+        // Blur PLTR chart when the hype question overlay appears
+        Reveal.on('fragmentshown', event => {
+            const section = event.fragment.closest('section');
+            if (section) {
+                const content = section.querySelector('.pltr-content');
+                if (content) content.classList.add('pltr-blurred');
+            }
+        });
+        Reveal.on('fragmenthidden', event => {
+            const section = event.fragment.closest('section');
+            if (section) {
+                const content = section.querySelector('.pltr-content');
+                if (content) content.classList.remove('pltr-blurred');
+            }
         });
     </script>
 </body>
